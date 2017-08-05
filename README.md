@@ -1,4 +1,4 @@
-# matlab ni daqmx
+# Matlab NI Daqmx
 For easy control NI DAQ in Matlab by use NI dll.(Without Data Acquisition Toolbox)
 
 ## Why you should use this ?
@@ -6,7 +6,7 @@ For easy control NI DAQ in Matlab by use NI dll.(Without Data Acquisition Toolbo
 1. Easy.
 2. Stable. (See "why I create this".)
 
-## How wasy ?
+## How easy ?
 
 ### Read a votage.
 
