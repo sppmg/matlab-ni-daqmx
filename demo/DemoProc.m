@@ -4,9 +4,9 @@ function DemoProc(obj)
 		% Action by direct run this function file.
 		close all;
 		clear classes;
-		daq = daqmx_Task('chan','dev1/ai0:2','alias',{'a','b','c'},'rate',100,'callbackfunc','DemoProc','ProcPeriod',0.3);
-		daq.DataWindowLen = 500 ;
-		daq.ResetDev;
+		daq = daqmx_Task('chan','dev2/ai0:2','alias',{'a','b','c'},'rate',100,'callbackfunc','DemoProc','ProcPeriod',0.3);
+		daq.DataStorageLen = 500 ;
+		daq.resetDev;
 		daq.start;
 		pause(10);
 		%figure; plot(daq.DataTime , daq.data); % plot 3 lines of each channel .
