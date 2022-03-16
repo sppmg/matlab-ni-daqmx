@@ -259,6 +259,23 @@ int32 __CFUNC DAQmxSetSampTimingType(TaskHandle taskHandle, int32 data);
 int32 __CFUNC DAQmxResetSampTimingType(TaskHandle taskHandle);
 
 
+// ************* New ****************
+
+// #define DAQmx_AI_Lowpass_Enable                                          0x1802 // Specifies whether to enable the lowpass filter of the channel.
+// #define DAQmx_AI_Lowpass_CutoffFreq                                      0x1803 // Specifies the frequency in Hertz that corresponds to the -3dB cutoff of the filter.
+
+//*** Set/Get functions for DAQmx_AI_Lowpass_Enable ***
+int32 __CFUNC DAQmxGetAILowpassEnable(TaskHandle taskHandle, const char channel[], bool32 *data);
+int32 __CFUNC DAQmxSetAILowpassEnable(TaskHandle taskHandle, const char channel[], bool32 data);
+int32 __CFUNC DAQmxResetAILowpassEnable(TaskHandle taskHandle, const char channel[]);
+//*** Set/Get functions for DAQmx_AI_Lowpass_CutoffFreq ***
+int32 __CFUNC DAQmxGetAILowpassCutoffFreq(TaskHandle taskHandle, const char channel[], float64 *data);
+int32 __CFUNC DAQmxSetAILowpassCutoffFreq(TaskHandle taskHandle, const char channel[], float64 data);
+int32 __CFUNC DAQmxResetAILowpassCutoffFreq(TaskHandle taskHandle, const char channel[]);
+
+
+
+
 #ifdef __cplusplus
 	}
 #endif

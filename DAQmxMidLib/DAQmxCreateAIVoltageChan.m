@@ -30,6 +30,7 @@ err = calllib(lib,'DAQmxTaskControl',taskh,2); % DAQmx_Val_Task_Verify =2;
 
 
 % create AI voltage channel(s) and add to task
+DAQmx_Val_Cfg_Default=-1;
 DAQmx_Val_RSE =10083;  % RSE
 DAQmx_Val_Volts= 10348; % measure volts
 name_channel = '';
@@ -37,7 +38,7 @@ name_channel = '';
 if ~iscell(PhysicalChannel)	% just 1 channel to add to task (maybe no need)
 	err = calllib(lib,'DAQmxCreateAIVoltageChan',taskh,...
 		PhysicalChannel,name_channel,...
-		DAQmx_Val_RSE,Vmin,Vmax,DAQmx_Val_Volts,'');
+		DAQmx_Val_Cfg_Default,Vmin,Vmax,DAQmx_Val_Volts,'');
 	DAQmxCheckError(lib,err);
 else % more than 1 channel to add to task
 	if length(Vmin)==1
@@ -50,7 +51,7 @@ else % more than 1 channel to add to task
 	for m = 1:numel(PhysicalChannel)
 		err = calllib(lib,'DAQmxCreateAIVoltageChan',taskh,...
 			PhysicalChannel{m},name_channel,...
-			DAQmx_Val_RSE,Vmin(m),Vmax(m),DAQmx_Val_Volts,'');
+			DAQmx_Val_Cfg_Default,Vmin(m),Vmax(m),DAQmx_Val_Volts,'');
 		DAQmxCheckError(lib,err);
 	end
 end
